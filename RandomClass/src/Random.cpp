@@ -1,5 +1,6 @@
 #include "Random.h"
 
+// This is a comment
 
 size_t Random::s_ObjectCount = 0;
 std::unique_ptr<std::random_device> Random::s_SeedGenerator = std::make_unique<std::random_device>();

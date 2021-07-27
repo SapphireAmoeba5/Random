@@ -17,6 +17,7 @@
 // (2^32-1)
 #define MAX_U32_BIT_INTEGER_LIMIT (uint32_t)-1
 
+
 class Random
 {
 public: // Public Constructor/Destructors
