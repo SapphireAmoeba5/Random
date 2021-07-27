@@ -1,0 +1,12 @@
+#Directories
+.vs/
+Debug/
+x64/
+RandomClass/Debug/
+RandomClass/x64/
+
+#Files
+*.user
+RandomClass.sln
+*.vcxproj
+*.filters
