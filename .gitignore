@@ -10,4 +10,4 @@ RandomClass/x64/
 RandomClass.sln
 *.vcxproj
 *.filters
-Test.cpp
+RandomClass/src/Test.cpp
