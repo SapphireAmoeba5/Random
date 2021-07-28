@@ -70,7 +70,7 @@ const uint32_t Random::operator()() const
 
 void Random::Impl_Init()
 {
-	this->Seed();
+	Seed();
 }
 
 inline const uint32_t Random::Impl_Next() const
