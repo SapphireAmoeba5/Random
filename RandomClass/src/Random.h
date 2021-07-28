@@ -43,13 +43,13 @@ public: // Operator Overloads
 
 
 private: // Non-static variables
-	std::unique_ptr<std::mt19937> m_RandEngine;
+	std::unique_ptr<std::mt19937> m_RandEngine; // mt19937
 	uint32_t m_Seed;
 	uint32_t m_Min;
 	uint32_t m_Max;
 
 private: // Static variables
-	static std::unique_ptr<std::random_device> s_SeedGenerator;
+	static std::unique_ptr<std::random_device> s_SeedGenerator; // Only used to input a random seed into 'm_RandEngine' therefore it is static. Don't know if its 100% thread safe
 	static size_t s_ObjectCount;
 
 

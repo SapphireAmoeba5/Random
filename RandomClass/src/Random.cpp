@@ -1,11 +1,12 @@
 #include "Random.h"
 
-// This is a comment
-
 size_t Random::s_ObjectCount = 0;
 std::unique_ptr<std::random_device> Random::s_SeedGenerator = std::make_unique<std::random_device>();
 
-
+/*
+* \param Min : (default = 0) : Minimum number generated (inclusive)
+* \param Max : (default = 2^32-1) : Maximum number generated (exclusive)
+*/
 Random::Random(size_t min/*= 0*/, size_t max/*= (2^32-1)*/)
 	: m_RandEngine(std::make_unique<std::mt19937>()), m_Seed(0), m_Min(min), m_Max(max)
 {
@@ -19,38 +20,58 @@ Random::~Random()
 	s_ObjectCount--;
 }
 
+/*
+* Seeds mt19937 engine using std::random_device
+*/
 inline const void Random::Seed()
 {
 	Impl_Seed((*s_SeedGenerator)());
 }
 
+/*
+* Seeds using custom seed
+* \param Seed : Custom seed chosen by user
+*/
 inline const void Random::Seed(uint32_t seed)
 {
 	Impl_Seed(seed);
 }
 
+/*
+* Generates a new random number
+*/
 inline const uint32_t Random::Next() const
 {
 	return Impl_Next();
 }
 
+/*
+* Sets the range of numbers generated
+*
+* \param Min : Minimum number generated (inclusive)
+* \param Max : Maximum number generated (exlusive)
+*/
 const void Random::SetRange(uint32_t min, uint32_t max)
 {
 	m_Min = min; 
 	m_Max = max;
 }
 
+/*
+* Generates a new random number (Calls Random::Next())
+*/
 const uint32_t Random::operator()() const
 {
 	return Next();
 }
 
+
+//==========PRIVATE FUNCTION DEFINITIONS==========
+
 void Random::Impl_Init()
 {
 	this->Seed();
 }
-
-//==========PRIVATE FUNCTION DEFINITIONS==========
 
 inline const uint32_t Random::Impl_Next() const
 {

@@ -5,6 +5,8 @@
 
 int main()
 {
-	Random random;
-	random.Next();
+	Random random(1, 1000);
+	auto number = random();
+
+	std::cout << number << "\n";
 }
