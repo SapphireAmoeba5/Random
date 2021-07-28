@@ -1,14 +1,14 @@
 #pragma once
 
 /*------------------------------------------
-
- Generates random numbers using mt19937 engine.
-
-
- Calling Random::Next() or Random::operator() generates a random number between
- 'min'(inclusive) and 'max'(exclusive).
-
-
+*
+* Generates random numbers using mt19937 engine.
+*
+*
+* Calling Random::Next() or Random::operator() generates a random number between
+* 'min'(inclusive) and 'max'(exclusive).
+*
+*
 ------------------------------------------*/
 
 #include <random>
@@ -59,5 +59,6 @@ private: // Non-static private methods
 	inline const uint32_t Impl_Distribute(uint32_t _In) const;
 	inline const void Impl_Seed(uint32_t seed);
 	inline const uint32_t Impl_GenerateNumber(size_t in, size_t max, size_t min) const;
+	inline const void Impl_SetRange(uint32_t min, uint32_t max);
 };
 

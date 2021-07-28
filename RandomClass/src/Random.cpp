@@ -53,8 +53,7 @@ inline const uint32_t Random::Next() const
 */
 const void Random::SetRange(uint32_t min, uint32_t max)
 {
-	m_Min = min; 
-	m_Max = max;
+	Impl_SetRange(min, max);
 }
 
 /*
@@ -70,7 +69,7 @@ const uint32_t Random::operator()() const
 
 void Random::Impl_Init()
 {
-	Seed();
+	Impl_Seed((*s_SeedGenerator)());
 }
 
 inline const uint32_t Random::Impl_Next() const
@@ -92,4 +91,10 @@ inline const void Random::Impl_Seed(uint32_t seed)
 inline const uint32_t Random::Impl_GenerateNumber(size_t in, size_t min, size_t max) const
 {
 	return in % (max - min) + min; // Converts 'in' between 'min' and 'max'
+}
+
+inline const void Random::Impl_SetRange(uint32_t min, uint32_t max)
+{
+	m_Min = min;
+	m_Max = max;
 }
