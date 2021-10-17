@@ -23,7 +23,7 @@ Random::~Random()
 /*
 * Seeds mt19937 engine using std::random_device
 */
-inline const void Random::Seed()
+const void Random::Seed()
 {
 	Impl_Seed((*s_SeedGenerator)());
 }
@@ -32,7 +32,7 @@ inline const void Random::Seed()
 * Seeds using custom seed
 * \param Seed : Custom seed chosen by user
 */
-inline const void Random::Seed(uint32_t seed)
+const void Random::Seed(uint32_t seed)
 {
 	Impl_Seed(seed);
 }
@@ -40,7 +40,7 @@ inline const void Random::Seed(uint32_t seed)
 /*
 * Generates a new random number
 */
-inline const uint32_t Random::Next() const
+const uint32_t Random::Next() const
 {
 	return Impl_Next();
 }
