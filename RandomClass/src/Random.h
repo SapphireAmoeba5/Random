@@ -31,9 +31,9 @@ public: // Getters
 	inline const uint32_t GetMax() const { return m_Max; }
 
 public: // Non-static public functions
-	inline const void Seed();
-	inline const void Seed(uint32_t seed);
-	inline const uint32_t Next() const;
+	const void Seed();
+	const void Seed(uint32_t seed);
+	const uint32_t Next() const;
 	
 public: // Setters
 	const void SetRange(uint32_t min, uint32_t max);
